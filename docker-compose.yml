@@ -1,0 +1,28 @@
+
+version: '3.8'
+
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: user
+      RABBITMQ_DEFAULT_PASS: password
+
+  app1:
+    build: ./app1
+    volumes:
+      - ./app1:/usr/src/app
+    depends_on:
+      - rabbitmq
+
+  app2:
+    build: ./app2
+    volumes:
+      - ./app2:/usr/src/app
+    depends_on:
+      - rabbitmq
+    deploy:
+      replicas: 3
