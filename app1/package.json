@@ -1,0 +1,17 @@
+{
+  "name": "app1",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "amqplib": "^0.10.3"
+  },
+  "devDependencies": {
+    "@types/amqplib": "^0.10.7",
+    "@types/node": "^24.0.10",
+    "typescript": "^5.4.5"
+  }
+}
